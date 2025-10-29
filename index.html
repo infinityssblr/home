@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Safety Solutions - Fire Safety Experts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Muted Premium Color Palette */
+            --color-navy-dark: #0f172a;
+            --color-navy: #1e293b;
+            --color-navy-light: #334155;
+            --color-brass: #9a8453;
+            --color-brass-light: #b8a574;
+            --color-burgundy: #6b2c2c;
+            --color-burgundy-light: #7d3c3c;
+            --color-charcoal: #374151;
+            --color-charcoal-light: #4b5563;
+            --color-slate: #64748b;
+            --color-off-white: #f8f7f4;
+            --color-beige: #e8e6e1;
+            --color-dark-navy-bg: #0a0f1a;
+            --color-muted-text: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--color-charcoal);
+            background: var(--color-beige);
+            overflow-x: hidden;
+        }
+
+        /* Refined, Subtle Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes softFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes subtleGlow {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(154, 132, 83, 0.08),
+                            0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+            50% {
+                box-shadow: 0 6px 24px rgba(154, 132, 83, 0.12),
+                            0 3px 10px rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        @keyframes drawLine {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .container {
+            margin: 0 auto;
+            background: var(--color-off-white);
+            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06),
+                        0 4px 16px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 100%);
+            color: var(--color-off-white);
+            padding: 60px 60px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(154, 132, 83, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-family: 'algerian';
+            font-size: 3.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+            letter-spacing: 1px;
+            position: relative;
+            color: var(--color-off-white);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .header-tagline {
+            font-family: 'algerian';
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            font-style: italic;
+            letter-spacing: 0.8px;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+            color: var(--color-brass-light);
+        }
+
+        .contact-bar {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin-top: 35px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(154, 132, 83, 0.15);
+            position: relative;
+            animation: fadeInUp 1.2s ease-out;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-bar p {
+            margin: 12px 0;
+            font-size: 0.95em;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            transition: transform 0.5s ease;
+            color: var(--color-beige);
+        }
+
+        .contact-bar p:hover {
+            transform: translateX(3px);
+        }
+
+        .contact-bar a {
+            color: var(--color-brass-light);
+            text-decoration: none;
+            transition: all 0.5s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-bar a:hover {
+            color: var(--color-off-white);
+            border-bottom: 1px solid var(--color-brass);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, 
+                        rgba(15, 23, 42, 0.96) 0%, 
+                        rgba(30, 41, 59, 0.94) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="subtle-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="0.8" fill="%239a8453" opacity="0.06"/></pattern></defs><rect width="1200" height="400" fill="url(%23subtle-pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-off-white);
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(154, 132, 83, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.8px;
+            position: relative;
+            color: var(--color-brass-light);
+        }
+
+        .hero h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-brass), transparent);
+            margin: 20px auto 0;
+            border-radius: 1px;
+        }
+
+        .mission-box, .quality-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            color: var(--color-beige);
+            padding: 40px 50px;
+            margin: 30px auto;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(154, 132, 83, 0.12);
+            position: relative;
+            transition: all 0.6s ease;
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .mission-box.visible, .quality-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mission-box:hover, .quality-box:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16),
+                        0 0 16px rgba(154, 132, 83, 0.08),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.06);
+        }
+
+        .mission-box::before, .quality-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--color-brass), var(--color-burgundy));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.2;
+        }
+
+        .mission-box h3, .quality-box h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--color-brass-light);
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 18px;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        .mission-box p, .quality-box p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: rgba(232, 230, 225, 0.9);
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, 
+            rgba(15, 23, 42, 0.96) 0%, 
+            rgba(30, 41, 59, 0.94) 100%),
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="subtle-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="0.8" fill="%239a8453" opacity="0.06"/></pattern></defs><rect width="1200" height="400" fill="url(%23subtle-pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .services-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            text-align: center;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--color-brass-light);
+            margin-bottom: 70px;
+            position: relative;
+            padding-bottom: 25px;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .services-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .services-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-crimson), var(--color-gold), var(--color-crimson));
+            border-radius: 2px;
+            animation: drawLine 1.5s ease forwards 0.5s;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(10, 22, 40, 0.08),
+                        0 5px 20px rgba(10, 22, 40, 0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(10, 22, 40, 0.15),
+                        0 10px 30px rgba(212, 175, 55, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border-color: var(--color-gold);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-navy-dark);
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+            color: var(--color-white);
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+
+        .service-card li {
+            padding: 16px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-charcoal);
+            font-weight: 400;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .service-card.visible li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .service-card li:nth-child(1) { transition-delay: 0.1s; }
+        .service-card li:nth-child(2) { transition-delay: 0.2s; }
+        .service-card li:nth-child(3) { transition-delay: 0.3s; }
+        .service-card li:nth-child(4) { transition-delay: 0.4s; }
+        .service-card li:nth-child(5) { transition-delay: 0.5s; }
+        .service-card li:nth-child(6) { transition-delay: 0.6s; }
+        .service-card li:nth-child(7) { transition-delay: 0.7s; }
+
+        .service-card li:hover {
+            color: var(--color-navy-dark);
+            transform: translateX(5px);
+        }
+
+        .service-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--color-crimson) 0%, var(--color-crimson-light) 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card li::after {
+            content: '✓';
+            position: absolute;
+            left: 6px;
+            top: 18px;
+            color: var(--color-white);
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .service-card li:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 6px 16px rgba(139, 0, 0, 0.5);
+        }
+
+        .design-services {
+            background: linear-gradient(135deg, #ffffff 0%, #fefcf6 100%);
+            border-color: rgba(212, 175, 55, 0.25);
+        }
+
+        .design-services::before {
+            background: linear-gradient(90deg, transparent, rgba(244, 196, 48, 0.15), transparent);
+        }
+
+        .design-intro {
+            font-style: italic;
+            color: var(--color-charcoal-light);
+            margin-bottom: 25px;
+            font-size: 1.08em;
+            line-height: 1.7;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 50%, var(--color-charcoal) 100%);
+            color: var(--color-white);
+            padding: 70px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 35px;
+            color: var(--color-brass-light);;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .footer-contact {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            color: rgba(232, 230, 225, 0.9);
+        }
+
+        .footer-contact:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3),
+                        0 0 30px rgba(212, 175, 55, 0.2),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-contact p {
+            margin: 15px 0;
+            font-size: 1.1em;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.8;
+        }
+
+        .footer-contact p strong {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .footer-contact a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            color: rgba(232, 230, 225, 0.9);
+        }
+
+        .footer-contact a:hover {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+
+        .cta {
+            margin-top: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            font-weight: 500;
+            color: var(--color-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+                letter-spacing: 1px;
+            }
+
+            .header-tagline {
+                font-size: 1.1em;
+                letter-spacing: 1px;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 40px 25px;
+            }
+
+            .hero {
+                padding: 60px 25px;
+            }
+
+            .services {
+                padding: 60px 25px;
+            }
+
+            .footer {
+                padding: 50px 25px;
+            }
+
+            .mission-box, .quality-box {
+                padding: 30px 25px;
+            }
+
+            .service-card {
+                padding: 30px 25px;
+            }
+
+            .services-title {
+                font-size: 2.2em;
+            }
+
+            .footer h3 {
+                font-size: 2em;
+            }
+
+            .service-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3em;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .service-card:hover {
+                transform: none;
+            }
+
+            .header, .hero, .footer {
+                color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>INFINITY SAFETY SOLUTIONS</h1>
+            <p class="header-tagline">Your Trusted Partner in Fire Safety &amp; Security</p>
+            <div class="contact-bar">
+                <p><strong>📍 Address:</strong> Pappanna Garden, KG Halli, Bengaluru 560045</p>
+                <p><strong>📧 Email:</strong> <a href="mailto:infinityssblr@gmail.com">infinityssblr@gmail.com</a></p>
+                <p><strong>📞 Phone:</strong> <a href="tel:+919449528445">+91 94495 28445</a> | <a href="tel:+919901975454">+91 99019 75454</a></p>
+            </div>
+        </header>
+
+        <!-- Hero Section with Mission and Quality Policy -->
+        <section class="hero">
+            <h2>Committed to Safety Excellence</h2>
+            
+            <div class="mission-box">
+                <h3>Our Mission</h3>
+                <p>Our mission is to prevent the loss of life and property.</p>
+            </div>
+
+            <div class="quality-box">
+                <h3>Quality Policy</h3>
+                <p>We are committed to providing our customers with value-added, innovative, and continuously improving quality services.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h2 class="services-title">Core Services</h2>
+
+            <div class="services-grid">
+                <!-- AMC & Training Services -->
+                <div class="service-card">
+                    <h3>
+                        <span class="service-icon">🛡️</span>
+                        AMC &amp; Training Services
+                    </h3>
+                    <ul>
+                        <li>Skilled care and maintenance of fire-fighting systems through Annual Maintenance Contracts (AMC)</li>
+                        <li>Training in the operation and use of all types of fire-fighting equipment and systems</li>
+                        <li>Emergency response, rescue, and evacuation drills</li>
+                        <li>Ensuring all fire-fighting systems remain functional at all times</li>
+                    </ul>
+                </div>
+
+                <!-- Design & Installation Services -->
+                <div class="service-card design-services">
+                    <h3>
+                        <span class="service-icon">⚙️</span>
+                        Design &amp; Installation
+                    </h3>
+                    <p class="design-intro">Design, supply, installation, testing, and commissioning of the following solutions:</p>
+                    <ul>
+                        <li>Fire alarm and smoke detection systems</li>
+                        <li>Fire hydrant and wet riser systems</li>
+                        <li>Automatic sprinkler systems</li>
+                        <li>Medium- and high-velocity spray systems</li>
+                        <li>Automatic gas flooding systems</li>
+                        <li>Access control and time-and-attendance management systems</li>
+                        <li>CCTV and monitoring systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h3>Get In Touch With Us</h3>
+                <div class="footer-contact">
+                    <p><strong>Infinity Safety Solutions</strong></p>
+                    <p>40/A Pappanna Garden, KG Halli<br>Bengaluru 560045, Karnataka, India</p>
+                    <p>Email: <a href="mailto:infinityssblr@gmail.com" target="_blank">infinityssblr@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+919449528445">+91 94495 28445</a> | <a href="tel:+919901975454">+91 99019 75454</a></p>
+                </div>
+                <p class="cta">🔥 Protecting Lives, Securing Futures 🔥</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Premium Scroll Animations with Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            const animatedElements = document.querySelectorAll('.mission-box, .quality-box, .services-title, .service-card');
+            animatedElements.forEach(el => observer.observe(el));
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add staggered animation delays to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.2}s`;
+            });
+
+            // Parallax effect on hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero && scrolled < hero.offsetHeight) {
+                    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+                }
+            });
+
+            // Add subtle floating animation to contact bar on hover
+            const contactBar = document.querySelector('.contact-bar');
+            if (contactBar) {
+                contactBar.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                contactBar.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            }
+
+            // Enhanced hover effects for service cards
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
